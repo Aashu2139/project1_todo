@@ -1,0 +1,64 @@
+-GITHUB
+
+#1 GIT CLONE <REPO URL>
+
+-CREATE VIRTUAL ENVIORNMENT
+
+ # YUM INSTALL PIP -Y
+ # YUM INSTALL VIRTUALENV -Y
+ # SOURCE ENV/BIN ACTIVATE
+
+- GO BACK TO DIRECTORY
+
+ # PIP INSTALL DJANGO -Y
+ # PYTHON MANAGE.PY MAKEMIGRATIONS
+ # PYTHON MANAGE.PY MIGRATE
+ # PYTHON MANAGE.PY CREATE SUPERUSER
+       `USERNAME
+       `MAIL
+       `PASSWORD
+       `USER CREATED
+ #PYTHON MANAGE.PY RUNSERVER 
+
+- CHECK REQUREMENT FILES
+ 
+ # PIP FREEZE > REQUIREMENTS.TXT
+
+-ADD PORT IN INSTANCE SECURITY GROUP 
+
+- SERVER RUNNING ON LOCALHOST 127.0.0.1:8000
+
+ # PYTHON MANAGE.PY RUNSERVER 0.0.0.0:8000
+   (HERE STILL NOT RUNNING)
+   (ADD YOUR INSTANCE ID TO HOSTS IN 'SETTINGS.PY' OR GIVE '*' FOR ALL)
+ 
+# NOW PASTE INSTANCE ID AND PORT EUUUUU WORKING PROPERLY
+----------------------------------------------------------------------------------------------------------------------------------------
+- CREATE DOCKERFILE
+ 
+  # NANO Dockerfile
+     [
+       FROM python 
+       RUN pip install django
+
+       COPY . .
+
+       RUN python manage.py migrate
+       CMD ["python"."manage.py","runserver","0.0.0.0:8000"]
+
+     ]  
+  # DOCKER BUILD . -T <IMG NAME >
+  # DOCKER RUN -IT ID -P 8000:8000 IMAGE ID -------- RUNS CONTAINER 
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-BUT WHEN ON TERMINAL YOU RUNSERVER BUT IF YOU PRESS CTRL+C YOUR ENVIORNMENT DROPS CANT RUN IN BACKGROUND
+ 
+  # NOHUP PYTHON MANAGE.PY RUNSERVER 0.0.0.0:8000 &  ----------RUNS IN BACKGROUOND
+  # LSOF -I:8000                                     ---------- SHOWS PROCESS ID RUNNING IN BACKGROUND
+  # KILL -9 <PROCESS ID>                             ---------- TERMINATE PROCESS
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+- INSTALL JENKINS ON OTHER UBUNTU SERVER
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-  
